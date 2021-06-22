@@ -48,7 +48,7 @@ class Client():
    		}
    		data = json.dumps(data)
    		request = requests.post(f"{self.api}x{ndcId}/s/chat/thread/{threadId}/message", headers=self.headers, data=data)
-   
+   		response = json.loads(request.text)
         
 	def join_chat(self, ndcId, threadId):
 	  	request = requests.post(f"{self.api}x{ndcId}/s/chat/thread/{threadId}/member/{self.userId}", headers=self.headers)
